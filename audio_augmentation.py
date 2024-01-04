@@ -25,10 +25,10 @@ augment = Compose(
 
 
 source_path = "./audioData"
-target_path = "./augmented"
+target_path = "./data/test"
 
 
-N = 20  # num of augmentations
+N = 5  # num of augmentations
 audio_files = os.listdir(source_path)
 for audio_file in audio_files:
     source_wav, sr = librosa.load(os.path.join(source_path, audio_file), sr=None)
