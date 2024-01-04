@@ -25,14 +25,17 @@ augment = Compose(
 
 
 source_path = "./audioData"
+target_path = "./augmented"
+
+
+N = 20  # num of augmentations
 audio_files = os.listdir(source_path)
-N = 3  # num of augmentations
 for audio_file in audio_files:
     source_wav, sr = librosa.load(os.path.join(source_path, audio_file), sr=None)
     for i in range(N):
         augmented_wav = augment(source_wav, sr)
         sf.write(
-            f"{os.path.join(source_path, audio_file.split('.')[0])}_{i}.wav",
+            f"{os.path.join(target_path, audio_file.split('.')[0])}_{i}.wav",
             augmented_wav,
             sr,
         )
